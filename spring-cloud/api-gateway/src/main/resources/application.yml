@@ -1,0 +1,25 @@
+server:
+  port: 9201
+service-url:
+  user-service: http://127.0.0.1:8201
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: path_route_service
+          uri: ${service-url.user-service}
+#          uri: http://www.ityouknow.com
+          predicates:
+            - Path=/user-service/**
+          filters:
+            - StripPrefix=1
+      discovery:
+        locator:
+          enabled: false
+          lower-case-service-id: true
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://macro:111111@127.0.0.1:8001/eureka/,http://macro:111111@127.0.0.1:8002/eureka/,http://macro:111111@127.0.0.1:8003/eureka/

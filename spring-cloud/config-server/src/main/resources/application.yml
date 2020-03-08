@@ -1,0 +1,18 @@
+server:
+  port: 8901
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/wangby0114/springcloud-config.git
+          username: wangby0114
+          password: 415824564wby
+          clone-on-start: true
+          search-paths: '{application}'
+eureka:
+  client:
+    service-url:
+      defaultZone: http://macro:111111@127.0.0.1:8001/eureka/

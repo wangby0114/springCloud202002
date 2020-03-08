@@ -1,0 +1,27 @@
+server:
+  port: 8904
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/wangby0114/springcloud-config.git
+          username: wangby0114
+          password: 415824564wby
+          clone-on-start: true
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    service-url:
+      defaultZone: http://macro:111111@127.0.0.1:8001/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'

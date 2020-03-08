@@ -1,0 +1,13 @@
+server:
+  port: 8401
+spring:
+  application:
+    name: hystrix-service
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://macro:111111@127.0.0.1:8002/eureka/,http://macro:111111@127.0.0.1:8003/eureka/
+service-url:
+  user-service: http://USER-SERVICE

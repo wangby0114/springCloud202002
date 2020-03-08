@@ -1,0 +1,15 @@
+server:
+  port: 8003
+spring:
+  application:
+    name: eureka-server-replica2
+eureka:
+  instance:
+    hostname: slave
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://macro:111111@master:8002/eureka/
+  server:
+    enable-self-preservation: true

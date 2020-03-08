@@ -1,0 +1,27 @@
+server:
+  port: 9005
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      profile: dev
+      label: dev
+      name: config
+      discovery:
+        enabled: true
+        service-id: config-server
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    service-url:
+      defaultZone: http://macro:111111@127.0.0.1:8001/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'refresh'
